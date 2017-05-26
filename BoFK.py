@@ -3,7 +3,7 @@
 # @Author: viceren
 # @Date:   2017-05-17 15:25:03
 # @Last Modified by:   viceren
-# @Last Modified time: 2017-05-24 11:45:44
+# @Last Modified time: 2017-05-26 17:30:24
 
 from flask import Flask
 from flask import request
@@ -12,7 +12,10 @@ from flask import redirect
 from flask import abort
 from flask_script import Manager
 from flask import render_template
+from flask_bootstrap import Bootstrap
 
+
+bootstrap = Bootstrap(app)
 app = Flask(__name__)
 #manager = Manager(app)
 
