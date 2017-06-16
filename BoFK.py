@@ -3,7 +3,7 @@
 # @Author: viceren
 # @Date:   2017-05-17 15:25:03
 # @Last Modified by:   viceren
-# @Last Modified time: 2017-05-26 17:30:24
+# @Last Modified time: 2017-06-05 16:12:56
 
 from flask import Flask
 from flask import request
@@ -13,11 +13,14 @@ from flask import abort
 from flask_script import Manager
 from flask import render_template
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from flask_sqlalchemy import SQLAlchemy
+from flask_script import Shell
 
-
-bootstrap = Bootstrap(app)
 app = Flask(__name__)
-#manager = Manager(app)
+manager = Manager(app)
+moment = Moment(app)
+bootstrap = Bootstrap(app)
 
 
 @app.route('/')
@@ -40,7 +43,5 @@ def ua():
     user_agent = request.headers.get('User-Agent')
     return '<p>Your browser is %s</p>' % user_agent, 400
 
-
 if __name__ == '__main__':
- # manager.run()
-    app.run(debug=True)
+    manager.run()
